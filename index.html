@@ -125,6 +125,10 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .art .place{position:absolute;left:16px;top:16px;z-index:3;display:flex;align-items:center;gap:8px;padding:4px 14px;border-radius:999px;background:var(--ink);color:#fff;font:800 13px var(--ff);letter-spacing:.06em}
 .art .place::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--yellow)}
 .art .year{position:absolute;right:16px;top:10px;z-index:3;font:900 clamp(56px,8vw,82px)/1 var(--ff-num);color:#fff;-webkit-text-stroke:3px var(--ink);text-shadow:5px 5px 0 var(--ink);letter-spacing:-.01em}
+/* iOS WebKit（Safari 及 iOS 上所有浏览器）对「描边＋硬投影」文字会渲染成重影/空心，改用多重投影模拟描边；桌面 Blink 内核无此问题，不受影响 */
+@supports (-webkit-touch-callout:none){
+  .hero h1 span,.art .year{-webkit-text-stroke-width:0;text-shadow:3px 0 0 var(--ink),-3px 0 0 var(--ink),0 3px 0 var(--ink),0 -3px 0 var(--ink),2.2px 2.2px 0 var(--ink),-2.2px 2.2px 0 var(--ink),2.2px -2.2px 0 var(--ink),-2.2px -2.2px 0 var(--ink),5px 5px 0 var(--ink)}
+}
 .propbox{position:absolute;right:7%;top:25%;display:flex;flex-direction:column;align-items:center;gap:12px}
 .art .prop{font-size:clamp(84px,11vw,118px);line-height:1;filter:drop-shadow(5px 6px 0 rgba(27,31,59,.85));animation:floaty 3.6s ease-in-out infinite;pointer-events:auto;cursor:pointer}
 .art .stat{display:flex;align-items:baseline;gap:8px;padding:6px 16px;background:var(--paper);border:var(--bw) solid var(--ink);border-radius:12px;box-shadow:var(--sh-s);transform:rotate(-2deg)}
