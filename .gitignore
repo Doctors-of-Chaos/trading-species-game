@@ -37,3 +37,10 @@ Temporary Items
 
 # 主办方赛题原文：不是我们的内容，不随仓库发布
 archive/赛题原文抓取.md
+
+# 主办方赛题资料（含答疑群图片等），不随仓库发布
+PandaAI苏客松赛题*/
+PandaAI苏客松赛题*.zip
+
+# 内部交接文档，不随公开仓库发布
+HANDOFF.md
