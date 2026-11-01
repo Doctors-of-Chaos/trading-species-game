@@ -8,7 +8,7 @@
 <style>
 :root{--gold:#ff7a1a;--gold-hi:#1b1f3b;--gold-dim:#4a4f6e;--line:#1b1f3b;--line-hi:#1b1f3b;--cyan:#3d7bff;--violet:#8b5cf6;--ink-dim:#4a4f6e;--ink-faint:#8b90a8}
 
-:root{color-scheme:light;--bg:#fff7e8;--paper:#ffffff;--ink:#1b1f3b;--ink-2:#4a4f6e;--ink-3:#8b90a8;--yellow:#ffd23f;--orange:#ff7a1a;--pink:#ff5c8a;--mint:#2fd3a0;--blue:#3d7bff;--purple:#8b5cf6;--up:#ff4d6d;--down:#12b886;--bw:2.5px;--sh:6px 6px 0 var(--ink);--sh-m:4px 4px 0 var(--ink);--sh-s:3px 3px 0 var(--ink);--ff:"PingFang SC","HarmonyOS Sans SC","MiSans","Microsoft YaHei","Noto Sans SC",system-ui,-apple-system,"Segoe UI",sans-serif;--ff-num:"Avenir Next","DIN Alternate","Helvetica Neue",Arial,var(--ff);--bounce:cubic-bezier(.34,1.56,.64,1)}
+:root{color-scheme:light;--bg:#fff7e8;--paper:#ffffff;--ink:#1b1f3b;--ink-2:#4a4f6e;--ink-3:#8b90a8;--yellow:#ffd23f;--orange:#ff7a1a;--pink:#ff5c8a;--mint:#2fd3a0;--blue:#3d7bff;--purple:#8b5cf6;--up:#ff4d6d;--down:#12b886;--bw:2.5px;--sh:6px 6px 0 var(--ink);--sh-m:4px 4px 0 var(--ink);--sh-s:3px 3px 0 var(--ink);--ff:"PingFang SC","HarmonyOS Sans SC","MiSans","Microsoft YaHei","Noto Sans SC",system-ui,-apple-system,"Segoe UI",sans-serif;--ff-num:"Avenir Next","DIN Alternate","Helvetica Neue",Arial,var(--ff);--bounce:cubic-bezier(.34,1.56,.64,1);--otl:3px 0 0 var(--ink),-3px 0 0 var(--ink),0 3px 0 var(--ink),0 -3px 0 var(--ink),2.2px 2.2px 0 var(--ink),-2.2px 2.2px 0 var(--ink),2.2px -2.2px 0 var(--ink),-2.2px -2.2px 0 var(--ink),5px 5px 0 var(--ink)}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%}
@@ -64,7 +64,7 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .orn b{width:12px;height:12px;border-radius:50%;background:var(--pink);border:2px solid var(--ink);box-shadow:18px 0 0 -2px var(--yellow),36px 0 0 -2px var(--blue);margin-right:36px}
 .hero{text-align:center;padding:22px 0 10px}
 .hero h1{margin:8px 0 4px;font:900 clamp(52px,12vw,104px)/1.05 var(--ff);letter-spacing:.04em;color:var(--ink)}
-.hero h1 span{display:inline-block;color:var(--c,var(--yellow));-webkit-text-stroke:3px var(--ink);text-shadow:5px 5px 0 var(--ink);animation:drop .8s var(--bounce) both;cursor:pointer}
+.hero h1 span{display:inline-block;color:var(--c,var(--yellow));text-shadow:var(--otl);animation:drop .8s var(--bounce) both;cursor:pointer}
 .hero h1 span:nth-child(1){--c:var(--yellow);animation-delay:.05s}
 .hero h1 span:nth-child(2){--c:var(--pink);animation-delay:.15s}
 .hero h1 span:nth-child(3){--c:var(--mint);animation-delay:.25s}
@@ -124,11 +124,8 @@ button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:tra
 .art .win{animation:flick 3s infinite}
 .art .place{position:absolute;left:16px;top:16px;z-index:3;display:flex;align-items:center;gap:8px;padding:4px 14px;border-radius:999px;background:var(--ink);color:#fff;font:800 13px var(--ff);letter-spacing:.06em}
 .art .place::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--yellow)}
-.art .year{position:absolute;right:16px;top:10px;z-index:3;font:900 clamp(56px,8vw,82px)/1 var(--ff-num);color:#fff;-webkit-text-stroke:3px var(--ink);text-shadow:5px 5px 0 var(--ink);letter-spacing:-.01em}
-/* iOS WebKit（Safari 及 iOS 上所有浏览器）对「描边＋硬投影」文字会渲染成重影/空心，改用多重投影模拟描边；桌面 Blink 内核无此问题，不受影响 */
-@supports (-webkit-touch-callout:none){
-  .hero h1 span,.art .year{-webkit-text-stroke-width:0;text-shadow:3px 0 0 var(--ink),-3px 0 0 var(--ink),0 3px 0 var(--ink),0 -3px 0 var(--ink),2.2px 2.2px 0 var(--ink),-2.2px 2.2px 0 var(--ink),2.2px -2.2px 0 var(--ink),-2.2px -2.2px 0 var(--ink),5px 5px 0 var(--ink)}
-}
+.art .year{position:absolute;right:16px;top:10px;z-index:3;font:900 clamp(56px,8vw,82px)/1 var(--ff-num);color:#fff;text-shadow:var(--otl);letter-spacing:-.01em}
+/* 标题与大年份的描边用多重 text-shadow 模拟（--otl）：-webkit-text-stroke 在 iOS WebKit 与部分国产安卓内核上有重影/空心 bug，全平台统一不用它 */
 .propbox{position:absolute;right:7%;top:25%;display:flex;flex-direction:column;align-items:center;gap:12px}
 .art .prop{font-size:clamp(84px,11vw,118px);line-height:1;filter:drop-shadow(5px 6px 0 rgba(27,31,59,.85));animation:floaty 3.6s ease-in-out infinite;pointer-events:auto;cursor:pointer}
 .art .stat{display:flex;align-items:baseline;gap:8px;padding:6px 16px;background:var(--paper);border:var(--bw) solid var(--ink);border-radius:12px;box-shadow:var(--sh-s);transform:rotate(-2deg)}
