@@ -38,13 +38,18 @@ PandaAI「苏客松」参赛作品。一个手机可玩的 H5 小游戏：玩家
 
 - 运行时：无第三方库、无 CDN、无外部字体。文字使用系统字体，部分图标为系统 emoji；角色与道具为自绘 SVG。
 - 数据：进阶模式行情最初通过开源项目 [AKShare](https://github.com/akfamily/akshare) 获取，后用 Panda Data（`panda_data` SDK）核对。
-- AI 工具：使用 Claude Code（Anthropic）辅助编写与重构代码、绘制 SVG 角色、自动化测试与数据核对。
-- 早期原型：`archive/` 中的早期版本含 ZCODE 可视化组件的占位代码，所用工具与用途：**待作者确认**。
+- AI 工具：使用 Claude Code CLI（Anthropic）辅助编写与重构代码、绘制 SVG 角色、自动化测试与数据核对；早期原型（`archive/` 中的旧版本）同样由 Claude Code CLI 编写。
+- 数据：进阶模式行情最初通过开源项目 [AKShare](https://github.com/akfamily/akshare) 获取，后用 Panda Data（`panda_data` SDK）核对。
+
+## 团队
+
+- 团队名称：第一名
+- 成员：Doctors-of-Chaos、zxzin、8888888888888888888888888888888、SiminHua
 
 ## 赛前已有成果与比赛期间工作
 
-- 赛前已有成果：**待作者填写**（如无，写「无」）。
-- 比赛期间完成的核心工作（待作者核对）：交易物种画像模型与四维评分；新手与进阶两种玩法；可追问修正的置信度机制；画像驱动的推荐与解释；行情数据整理与 Panda Data 核对；手机适配与交互动效。
+- 赛前已有成果：无。
+- 比赛期间完成的核心工作：交易物种画像模型与四维评分；新手与进阶两种玩法；可追问修正的置信度机制；画像驱动的推荐与解释；行情数据整理与 Panda Data 核对；手机适配与交互动效。
 
 ## 已知限制
 
